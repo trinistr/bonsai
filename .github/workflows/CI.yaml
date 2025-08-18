@@ -1,0 +1,35 @@
+name: CI
+permissions:
+  contents: read
+on:
+  push:
+    branches:
+      - main
+      - raise-ruby-version-to-3
+  pull_request:
+  workflow_dispatch:
+jobs:
+  test-CRuby:
+    name: CRuby ${{ matrix.ruby }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby:
+        - '3.0.0'
+        - '3.0'
+        - '3.1'
+        - '3.2'
+        - '3.3'
+        - '3.4'
+        - 'head'
+        experimental: [false]
+    continue-on-error: ${{ matrix.experimental }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
+    - name: Run RSpec
+      run: bundle exec rake spec
