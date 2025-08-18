@@ -8,12 +8,7 @@ require 'tilt'
 require 'liquid'
 require 'active_support/inflector'
 
-begin 
-  require 'rdiscount'
-  BlueCloth = RDiscount
-rescue LoadError
-  require 'maruku'
-end
+require 'rdiscount'
 
 module Bonsai
   class Page
@@ -169,11 +164,7 @@ module Bonsai
     end
     
     def to_markdown(content)
-      if defined? RDiscount
-        RDiscount.new(content, :smart).to_html
-      else
-        Maruku.new(content).to_html
-      end
+      RDiscount.new(content, :smart).to_html
     end
     
     # Creates "methods" for each sub-folder within the page's folder

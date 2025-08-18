@@ -136,8 +136,9 @@ describe Bonsai::Page do
           Hello from our template, named Contact
           
           Get in touch
-          
-          <p>“A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.”</p>
+          <p>&ldquo;A designer knows he has achieved perfection
+          not when there is nothing left to add,
+          but when there is nothing left to take away.&rdquo;</p>
           
           <p>– Antoine de Saint-Exupery</p>
           
@@ -152,11 +153,11 @@ describe Bonsai::Page do
         end
 
         it "should use markdown for multiple line content" do
-          page.should =~ /<p>“A designer knows he/
+          page.should =~ /<p>&ldquo;A designer knows he/
         end
 
         it "should use smartypants" do
-          page.should =~ /“/
+          page.should =~ /&ldquo;/
         end
       end
     end
