@@ -114,7 +114,7 @@ module Bonsai
       
 
       def generate_assets
-        Dir["#{Bonsai.root_dir}/public/**/*.{less,sass,scss,coffee}"].each do |file|
+        Dir["#{Bonsai.root_dir}/public/**/*.{sass,scss,coffee}"].each do |file|
           begin
             compiled = Tilt.new(file).render
             path = "#{File.dirname(file)}/#{File.basename(file, ".*")}.#{File.extname(file) == '.coffee' ? 'js' : 'css'}"

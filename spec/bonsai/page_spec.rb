@@ -73,11 +73,11 @@ describe Bonsai::Page do
     end
     
     it "index should be a floating page" do
-      @index.floating?.should be_true
+      @index.floating?.should be true
     end
 
     it "about should not be a floating page" do
-      @about.floating?.should be_false
+      @about.floating?.should be false
     end
   end
   
@@ -132,7 +132,18 @@ describe Bonsai::Page do
       it { should_not be_nil }
 
       it "should replace liquid variables with properties from the content file" do
-        page.should == "Hello from our template, named Contact\n\nGet in touch\n<p>&#8220;A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.&#8221;</p>\n\n<p>– Antoine de Saint-Exupery</p>\n\nThis content should be inserted!"
+        page.should == <<~TEXT.chomp!
+          Hello from our template, named Contact
+          
+          Get in touch
+          
+          <p>“A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.”</p>
+          
+          <p>– Antoine de Saint-Exupery</p>
+          
+          
+          This content should be inserted!
+        TEXT
       end
       
       describe "markdown" do
@@ -141,11 +152,11 @@ describe Bonsai::Page do
         end
 
         it "should use markdown for multiple line content" do
-          page.should =~ /<p>&#8220;A designer knows he/
+          page.should =~ /<p>“A designer knows he/
         end
 
         it "should use smartypants" do
-          page.should =~ /&#8220;/
+          page.should =~ /“/
         end
       end
     end
