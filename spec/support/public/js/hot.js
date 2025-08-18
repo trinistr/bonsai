@@ -1,5 +1,4 @@
 (function() {
-
   this.foo = function() {
     return alert('bar');
   };

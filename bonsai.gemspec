@@ -11,15 +11,15 @@ Gem::Specification.new do |s|
   s.summary     = %Q{A static site generator that uses the best toolset available}
   s.description = %Q{A static site generator that uses the best toolset available}
 
-  s.rubyforge_project = "bonsai"
+  s.required_ruby_version = "~> 3.0"
 
   s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  s.add_development_dependency "rspec", "~> 2.8.0"
+  s.add_development_dependency "rspec", "~> 2.99.0"
+  s.add_development_dependency "rspec-its"
   s.add_development_dependency "rake"
   s.add_development_dependency "yard", "~> 0.7.5"
   s.add_development_dependency "coffee-script", ">= 2.2.0"
@@ -48,4 +48,3 @@ Gem::Specification.new do |s|
     type `bonsai --help` to get started
   }
 end
-
