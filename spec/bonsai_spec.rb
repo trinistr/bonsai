@@ -11,7 +11,7 @@ describe Bonsai do
   end
   
   it "should throw an exception if it doesn't look like a bonsai site" do
-    lambda { Bonsai.root_dir = "spec" }.should raise_error
+    lambda { Bonsai.root_dir = "spec" }.should raise_error(SystemExit)
     lambda { Bonsai.root_dir = "spec/support" }.should_not raise_error
   end
   

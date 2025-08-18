@@ -1,7 +1,7 @@
 require "#{File.dirname(__FILE__)}/../spec_helper"
 
 describe Bonsai::Exporter do
-  after :suite do
+  after :all do
     FileUtils.rm_rf Bonsai::Exporter.path
   end
 
@@ -26,7 +26,7 @@ describe Bonsai::Exporter do
 
     it "should log an error when badly formatted less is supplied (and not raise an exception)" do
       Bonsai.should_receive(:log)
-      lambda { Bonsai::Exporter.send(:generate_assets) }.should_not raise_error(Sass::SyntaxError)
+      lambda { Bonsai::Exporter.send(:generate_assets) }.should_not raise_error
     end
 
     it "cleans up compiled source files" do

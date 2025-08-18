@@ -129,7 +129,7 @@ module Bonsai
     
     def content
       YAML::load(File.read(disk_path)) || {}
-    rescue ArgumentError
+    rescue Psych::SyntaxError
       raise "Page '#{permalink}' has badly formatted content"
     end
     

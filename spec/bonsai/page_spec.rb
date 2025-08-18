@@ -237,8 +237,8 @@ describe Bonsai::Page do
       Bonsai::Page.find("page").should be_an_instance_of(Bonsai::Page)
     end
     
-    it "should error gracefully" do
-      lambda { Bonsai::Page.find("page").render }.should_not raise_error(ArgumentError)
+    it "should raise error with page name and description of the problem" do
+      lambda { Bonsai::Page.find("page").render }.should raise_error("Page '/broken_page/' has badly formatted content")
     end
   end
 end
