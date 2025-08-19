@@ -21,8 +21,10 @@ jobs:
         - '3.2'
         - '3.3'
         - '3.4'
-        - 'head'
-        experimental: [true]
+        experimental: [false]
+        include:
+          - ruby: 'head'
+            experimental: true
     continue-on-error: ${{ matrix.experimental }}
     steps:
     - uses: actions/checkout@v4
