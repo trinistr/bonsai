@@ -3,11 +3,6 @@ require 'rspec/core/rake_task'
 
 RSpec::Core::RakeTask.new('spec')
 
-RSpec::Core::RakeTask.new('rcov') do |spec|
-  spec.rcov = true
-  spec.rcov_opts = %w[--exclude spec]
-end
-
 task :default => :spec
 
 begin
