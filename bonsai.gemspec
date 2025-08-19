@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = %Q{A static site generator that uses the best toolset available}
   s.description = %Q{A static site generator that uses the best toolset available}
 
-  s.required_ruby_version = "~> 3.0"
+  s.required_ruby_version = ">= 2.7", "< 4.0.0"
 
   s.files         = `git ls-files`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec", "~> 3.0"
   s.add_development_dependency "rspec-its"
   s.add_development_dependency "rake"
-  s.add_development_dependency "yard", "~> 0.7.5"
+  s.add_development_dependency "yard", "~> 0.7"
   s.add_development_dependency "coffee-script", ">= 2.2.0"
   s.add_development_dependency "therubyracer", ">= 0.11.3"
   s.add_dependency "rack"
