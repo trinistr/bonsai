@@ -52,7 +52,7 @@ module Bonsai
     def load_extensions
       extension_path = "#{@root_dir}/extensions.rb"
 
-      if File.exists?(extension_path)
+      if File.exist?(extension_path)
         require File.expand_path(extension_path)
       end
     end

@@ -17,11 +17,11 @@ describe Bonsai::Exporter do
 
   shared_examples_for "asset generators" do
     it "should process .scss files to .css" do
-      File.exists?("#{Bonsai::Exporter.path}/stylesheets/sassy.css").should be true
+      File.exist?("#{Bonsai::Exporter.path}/stylesheets/sassy.css").should be true
     end
 
     it "should process .coffee files to .js" do
-      File.exists?("#{Bonsai::Exporter.path}/js/hot.js").should be true
+      File.exist?("#{Bonsai::Exporter.path}/js/hot.js").should be true
     end
 
     it "should log an error when badly formatted less is supplied (and not raise an exception)" do
@@ -30,9 +30,9 @@ describe Bonsai::Exporter do
     end
 
     it "cleans up compiled source files" do
-      File.exists?("#{Bonsai::Exporter.path}/js/hot.coffee").should_not be true
-      File.exists?("#{Bonsai::Exporter.path}/stylesheets/brokensass.sass").should_not be true
-      File.exists?("#{Bonsai::Exporter.path}/stylesheets/sassy.scss").should_not be true
+      File.exist?("#{Bonsai::Exporter.path}/js/hot.coffee").should_not be true
+      File.exist?("#{Bonsai::Exporter.path}/stylesheets/brokensass.sass").should_not be true
+      File.exist?("#{Bonsai::Exporter.path}/stylesheets/sassy.scss").should_not be true
     end
   end
 
@@ -85,7 +85,7 @@ describe Bonsai::Exporter do
       end
 
       it "should create the output directory" do
-        File.exists?(Bonsai::Exporter.path).should be true
+        File.exist?(Bonsai::Exporter.path).should be true
       end
 
       it "should render pages to the output directory" do
@@ -94,27 +94,27 @@ describe Bonsai::Exporter do
       end
 
       it "should copy the images of each page to its directory" do
-        File.exists?("#{Bonsai::Exporter.path}/about-us/history/images/image001.jpg").should be true
+        File.exist?("#{Bonsai::Exporter.path}/about-us/history/images/image001.jpg").should be true
       end
 
       it 'should copy the assets of each page to its directory' do
-        File.exists?("#{Bonsai::Exporter.path}/about-us/history/1_a_file_asset.txt").should be true
+        File.exist?("#{Bonsai::Exporter.path}/about-us/history/1_a_file_asset.txt").should be true
       end
 
       it "should copy the contents of the public directory to the root export path" do
-        File.exists?("#{Bonsai::Exporter.path}/.htaccess").should be true
+        File.exist?("#{Bonsai::Exporter.path}/.htaccess").should be true
       end
 
       it "should write the index file to output/index.html" do
-        File.exists?("#{Bonsai::Exporter.path}/index.html").should be true
+        File.exist?("#{Bonsai::Exporter.path}/index.html").should be true
       end
 
       it "should write a sitemap.xml" do
-        File.exists?("#{Bonsai::Exporter.path}/sitemap.xml").should be true
+        File.exist?("#{Bonsai::Exporter.path}/sitemap.xml").should be true
       end
 
       it "should write a readme file to explain how the site was generated" do
-        File.exists?("#{Bonsai::Exporter.path}/ABOUT-THIS-SITE.txt").should be true
+        File.exist?("#{Bonsai::Exporter.path}/ABOUT-THIS-SITE.txt").should be true
       end
 
       describe "asset compression" do
